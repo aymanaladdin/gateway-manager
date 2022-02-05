@@ -5,6 +5,7 @@ const gateWayRoutes = Router();
 
 gateWayRoutes.get('/', gatewayController.listGateways);
 gateWayRoutes.post('/', gatewayController.addGateway);
+
 gateWayRoutes.put('/:serialNumber', () => {});
 gateWayRoutes.get('/:serialNumber', gatewayController.getGatewayDetails);
 

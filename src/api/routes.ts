@@ -1,11 +1,11 @@
 import { Router } from 'express';
 import gateWayRoutes from './gateway/routes';
-import deviceRoutes from './peripheral-device/routes';
-import { DEVICE_PATH, GATEWAY_PATH } from '../constants';
+import deviceRoutes from './device/routes';
+import { GATEWAY_DEVICE_PATH, GATEWAY_PATH } from '../util/constants';
 
 const appRoutes = Router();
 
 appRoutes.use(GATEWAY_PATH, gateWayRoutes);
-appRoutes.use(DEVICE_PATH, deviceRoutes);
+appRoutes.use(GATEWAY_DEVICE_PATH, deviceRoutes);
 
 export default appRoutes;

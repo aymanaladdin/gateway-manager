@@ -4,4 +4,4 @@ export const API_VERSION = '/api/v1';
 
 export const GATEWAY_PATH = '/gateways';
 
-export const DEVICE_PATH = '/peripheral-devices';
+export const GATEWAY_DEVICE_PATH = '/gateways/:serialNumber/peripheral-devices';

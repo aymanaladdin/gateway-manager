@@ -7,7 +7,7 @@ import helmet from 'helmet';
 import methodOverride from 'method-override';
 import { NOT_FOUND } from 'http-status';
 
-import { API_VERSION, LOG_OPTION } from './constants';
+import { API_VERSION, LOG_OPTION } from './util/constants';
 import appRoutes from './api/routes';
 
 const app = express();

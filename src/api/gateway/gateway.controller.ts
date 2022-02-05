@@ -5,36 +5,27 @@ import { Gateway } from './types';
 const gateways: Gateway[] = [
   {
     serialNumber: 'LcLNhgSA',
-    displayName: 'gateway one',
+    name: 'gateway one',
     ipAddress: '123.432.213.44',
-    peripheralDevices: ['dev 1', 'dev2'],
+    peripheralDevices: [],
   },
   {
     serialNumber: 'LcLNhgSA',
-    displayName: 'gateway two',
+    name: 'gateway two',
     ipAddress: '123.432.413.44',
-    peripheralDevices: ['dev 1', 'dev2'],
+    peripheralDevices: [],
   },
   {
     serialNumber: 'LcLNhgSA',
-    displayName: 'gateway three',
+    name: 'gateway three',
     ipAddress: '123.432.213.41',
-    peripheralDevices: ['dev 1', 'dev2'],
+    peripheralDevices: [],
   },
 ];
 
 const gatewayController = {
   async listGateways(req: express.Request, res: express.Response) {
-    res
-      .status(OK)
-      .json(
-        gateways
-          .map(
-            ({ serialNumber, displayName, ipAddress }) => (
-              { serialNumber, displayName, ipAddress }
-            ),
-          ),
-      );
+    res.status(OK).json(gateways);
   },
 
   async addGateway(req: express.Request, res: express.Response) {

@@ -1,6 +1,8 @@
+import { Device } from '../device/types';
+
 export type Gateway = {
   serialNumber: string,
-  displayName: string,
+  name: string,
   ipAddress: string,
-  peripheralDevices: string[]
+  peripheralDevices: Device[]
 };
