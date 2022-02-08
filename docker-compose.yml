@@ -1,14 +1,16 @@
 version: "2"
 services:
-  gateway-manager:
-    build: .
+  gateway-manager-api:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/express-rest-es2017-boilerplate
+      - MONGO_URI=mongodb://mongodb:27017/gateway-manager
       - NODE_ENV=development
     volumes:
-      - .:/app
+      - ./server:/app
     ports:
-      - "3000:3000"
+      - "5000:5000"
     depends_on:
       - mongodb
 
@@ -16,3 +18,14 @@ services:
     image: mongo
     ports:
       - "27017:27017"
+
+  mongo-seed:
+    build: 
+      context: ./db
+      dockerfile: Dockerfile
+    environment:
+      - MONGODB_HOST=mongodb
+      - MONGODB_PORT=27017
+    volumes:
+      - ./db/seeding:/data/seeding/
+    command: "mongoimport --host mongodb --port 27017 --db gateway-manager --collection gateways --mode upsert --type json --file /data/seeding/gateways.json --jsonArray"
