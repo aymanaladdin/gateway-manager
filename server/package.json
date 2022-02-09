@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc & node dist/index.js",
+    "start": "pm2 start ecosystem.config.js --env production --attach",
+    "stop": "pm2 stop ecosystem.config.js",
+    "dev": "ts-node ./src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint --fix . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,7 +20,6 @@
     "body-parser": "^1.17.0",
     "compression": "^1.6.2",
     "cors": "^2.8.3",
-    "cross-env": "^7.0.3",
     "dotenv-safe": "^8.2.0",
     "express": "^4.15.2",
     "gateway-manager": "file:..",
@@ -28,7 +29,8 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.2.17",
     "morgan": "^1.10.0",
-    "nanoid": "^3.2.0"
+    "nanoid": "^3.2.0",
+    "pm2": "^5.1.2"
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.2",
@@ -45,16 +47,19 @@
     "chai": "^4.1.0",
     "chai-as-promised": "^7.1.1",
     "coveralls": "^3.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^16.1.0",
     "eslint-plugin-import": "^2.25.2",
     "mocha": "^6.2.2",
+    "nodemon": "^2.0.15",
     "nyc": "^15.1.0",
     "opn-cli": "^5.0.0",
     "sinon": "^7.5.0",
     "sinon-chai": "^3.0.0",
     "supertest": "^6.1.3",
+    "ts-node": "^10.5.0",
     "typescript": "^4.5.5"
   }
 }

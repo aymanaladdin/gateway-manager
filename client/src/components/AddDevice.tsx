@@ -24,7 +24,7 @@ export const AddDevice = ({ serial, isOpen, handleClose, handleSuccess }: any) =
     setVendorError(!vendor.length)
 
     if (vendor.length) {
-      // setLoading(true)
+      setLoading(true)
 
       deviceService.addGatewayDevice(serial, { status, vendor })
         .then((device) => {

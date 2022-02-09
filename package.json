@@ -4,11 +4,18 @@
   "description": "This sample project is managing gateways - master devices that control multiple peripheral devices",
   "main": "server/dist/index.js",
   "scripts": {
-    "install": "npm --prefix \"./client\" install && npm --prefix \"./server\" install",
-    "build": "npm --prefix \"./client\" run build && npm --prefix \"./server\" run build",
-    "start": "docker-compose up -d && npm --prefix \"./client\" start",
-    "start:client": "npm --prefix \"./client\" start",
-    "start:server": "docker-compose up -d"
+    "install:all": "npm install && npm --prefix \"./client\" install && npm --prefix \"./server\" install",
+   
+    "dev:client": "npm --prefix \"./client\" start",
+    "dev:server": "docker-compose up -d && npm --prefix \"./server\" run dev",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    
+    "build:client": "npm --prefix \"./client\" run build && copyfiles  -u 2 -a \"./client/build/*\" \"./server/docs\"",
+    "build": "npm run build:client && npm --prefix \"./server\" run build",
+
+    "start": "npm run build && npm --prefix \"./server\" start",
+   
+    "docker:start": "npm run build && docker-compose up -d"
   },
   "repository": {
     "type": "git",
@@ -20,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/aymanaladdin/gateway-manager/issues"
   },
-  "homepage": "https://github.com/aymanaladdin/gateway-manager#readme"
+  "homepage": "https://github.com/aymanaladdin/gateway-manager#readme",
+  "dependencies": {
+    "concurrently": "^7.0.0",
+    "copyfiles": "^2.4.1"
+  }
 }
