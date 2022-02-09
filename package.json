@@ -10,7 +10,7 @@
     "dev:server": "docker-compose up -d && npm --prefix \"./server\" run dev",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     
-    "build:client": "npm --prefix \"./client\" run build && copyfiles  -u 2 -a \"./client/build/*\" \"./server/docs\"",
+    "build:client": "npm --prefix \"./client\" run build && copyfiles  -u 2 -a \"./client/build/**/*\" \"./server/docs\"",
     "build": "npm run build:client && npm --prefix \"./server\" run build",
 
     "start": "npm run build && npm --prefix \"./server\" start",

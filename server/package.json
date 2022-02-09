@@ -5,8 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "pm2 start ecosystem.config.js --env production --attach",
-    "stop": "pm2 stop ecosystem.config.js",
+    "start": "cross-env NODE_ENV=production node dist/index.js",
     "dev": "ts-node ./src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint --fix . --ext .ts",

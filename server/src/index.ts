@@ -3,7 +3,7 @@ import app from './app';
 import initConnection from './util/mongoose';
 
 async function main() {
-  dotenv.config();
+  dotenv.config({allowEmptyValues: true});
 
   const uri = process.env.MONGO_URI;
   

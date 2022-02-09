@@ -1,8 +1,5 @@
-import axios from "axios";
-import { API_URL } from "./constants";
+import httpClient from "./http-client";
 import { Device } from "./types";
-
-const httpClient = axios.create({ baseURL: API_URL });
 
 const deviceService = {
   removeGatewayDevice: async (serial: string, uid: number) => {

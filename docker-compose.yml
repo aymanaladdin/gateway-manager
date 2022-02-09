@@ -6,7 +6,8 @@ services:
       dockerfile: Dockerfile
     environment:
       - MONGO_URI=mongodb://mongodb:27017/gateway-manager
-      - NODE_ENV=development
+      - NODE_ENV=production
+
     volumes:
       - ./server:/app
     ports:
