@@ -52,7 +52,7 @@ docker-compose up -d mongo mongo-seed
 * if you don't have installed docker you should download a [mongo client](https://www.mongodb.com/try/download/community) first and start it manually
 * you could still able to seed data manually as well, open mongo shell from terminal and run the following cmd
 ```Shell
-mongoimport --host mongodb --port 27017 --db gateway-manager --collection gateways --mode upsert --type json --file /data/seeding/gateways.json --jsonArray
+mongoimport --host localhost --port 27017 --db gateway-manager --collection gateways --mode upsert --type json --file /data/seeding/gateways.json --jsonArray
 ```
 
 ### Start app in dev mode
