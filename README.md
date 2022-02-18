@@ -47,7 +47,7 @@ docker-compose up -d mongo
 ```
 * To init start mongo with seeded data run the following cmd, this will create a collection with seeded data
  ```Shell
-docker-compose up -d mongo mongo-seed
+docker-compose up -d mongodb mongo-seed
 ```
 * if you don't have installed docker you should download a [mongo client](https://www.mongodb.com/try/download/community) first and start it manually
 * you could still able to seed data manually as well, open mongo shell from terminal and run the following cmd
