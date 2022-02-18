@@ -7,7 +7,7 @@
     "install:all": "npm install && npm --prefix \"./client\" install && npm --prefix \"./server\" install",
    
     "dev:client": "npm --prefix \"./client\" start",
-    "dev:server": "docker-compose up -d && npm --prefix \"./server\" run dev",
+    "dev:server": "docker-compose up -d mongodb mongo-seed && npm --prefix \"./server\" run dev",
     "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
     
     "build:client": "npm --prefix \"./client\" run build && copyfiles  -u 2 -a \"./client/build/**/*\" \"./server/docs\"",
